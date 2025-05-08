@@ -18,5 +18,6 @@ export const getImagesAction = async (directoryName: string): Promise<ImageArray
         return blobs
     } catch (error: unknown) {
         console.error(error)
+        return undefined
     }
 }
