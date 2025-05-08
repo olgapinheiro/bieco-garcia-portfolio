@@ -1,5 +1,5 @@
-const OutsidesPage = () => {
+const LifestylePage = () => {
   return <p>Not Implemented</p>
 }
 
-export default OutsidesPage
+export default LifestylePage
