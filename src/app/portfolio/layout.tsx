@@ -1,6 +1,7 @@
+import Header from "@/components/Header"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,22 +14,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BIECO GARCIA",
+  title: "BIECO GARCIA - Portfolio",
   description: "Photographer",
 };
 
-export default function RootLayout({
+export default function PortfolioLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {/* Layout UI */}
+        {/* Place children where you want to render a page or nested layout */}
+        <Header />
+        <div className="static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
+          {children}
+        </div>
       </body>
     </html>
-  );
+  )
 }
