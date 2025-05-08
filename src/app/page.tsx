@@ -19,8 +19,7 @@ export default function Home() {
           className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-sm"
           href="/portfolio"
         >
-          PORTFÓLIO DE FOTOGRAFIA<br />
-          PARA O SETOR DE HOTELARIA
+          PHOTOGRAPHER PORTFOLIO
         </Link>
       </footer>
     </div>
