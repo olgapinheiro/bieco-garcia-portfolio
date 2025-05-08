@@ -1,9 +1,8 @@
 import Image from "next/image";
-import outsides from "../../../public/outsides/8-tabaobi.jpg"
+import outsides from "../../../public/outsides/8-tabaobi.webp"
 import insides from "../../../public/insides/11-filhadaluapipa.webp"
 import foodsAndDrinks from "../../../public/foods-and-drinks/2-refugiodoriobonito.webp"
 import lifestyle from "../../../public/lifestyle/4_filhadaluapipa.webp"
-// import aerials from "../../../public/outsides/8-tabaobi.jpg"
 import destinations from "../../../public/destinations/1-reveilloncarneiros.webp"
 import Link from "next/link";
 
@@ -32,12 +31,6 @@ const IMAGES = [
     key: 'lifestyle',
     position: 'center',
   },
-  // {
-  //   src: '/outsides/8-tabaobi.jpg',
-  //   label: 'aerials',
-  //   key: 'aerials',
-  //   position: 'center',
-  // },
   {
     src: destinations,
     label: 'destinations',

@@ -1,8 +1,10 @@
 'use server'
-import { promises as fs } from 'fs'
-import path from 'path'
+import { list, ListBlobResult } from '@vercel/blob';
+// import { promises as fs } from 'fs'
 
-export type ImageArray = string[] | undefined;
+// import path from 'path'
+
+export type ImageArray = ListBlobResult | undefined;
 
 /**
  *
@@ -11,13 +13,9 @@ export type ImageArray = string[] | undefined;
  */
 export const getImagesAction = async (directoryName: string): Promise<ImageArray> => {
     try {
-        /* Grabs path to public/{directoryName} */
-        const imageDirectory = path.join(process.cwd(), `/public/${directoryName}`);
-
-        /* Reads the content of the midj dir and returns an array of strings */
-        const imageFilenames: ImageArray = await fs.readdir(imageDirectory)
-
-        return imageFilenames.filter((fileName) => !fileName.startsWith('.'))
+        // https://vercel.com/docs/vercel-blob/using-blob-sdk#list-blobs
+        const blobs = await list({prefix: directoryName});
+        return blobs
     } catch (error: unknown) {
         console.error(error)
     }

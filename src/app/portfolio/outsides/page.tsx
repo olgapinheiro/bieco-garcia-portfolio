@@ -2,7 +2,7 @@ import Gallery from "@/components/Gallery"
 import { getImagesAction } from "@/utils/getImagesAction"
 import { Suspense } from "react";
 
-const OutsidesPage = async () => {
+const OutsidesPage = () => {
   const imagesArrayPromise = getImagesAction('outsides');
 
   return (
