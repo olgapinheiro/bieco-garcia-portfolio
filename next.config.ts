@@ -4,8 +4,12 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
-      new URL("https://kdza1dlzdaaocp7i.public.blob.vercel-storage.com/**"),
-    ],
+      {
+        protocol: 'https',
+        hostname: 'kdza1dlzdaaocp7i.public.blob.vercel-storage.com',
+        pathname: '/**',
+      },
+   ],
   },
 };
 
