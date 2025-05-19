@@ -15,7 +15,6 @@ const ImageTrigger = ({ image, directoryName }: { image: ListBlobResultBlob, dir
   return (
     <>
       <button
-        key={image.pathname}
         className="relative w-full h-auto mb-8 gap-8 z-0"
         onClick={handleModal}
       >
