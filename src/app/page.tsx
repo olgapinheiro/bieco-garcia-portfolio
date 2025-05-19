@@ -12,11 +12,12 @@ export default function Home() {
         </Link>
       </main>
       <footer className="bg-white fixed inset-x-0 bottom-0 flex gap-[24px] flex-wrap items-center justify-center py-4">
-        <div
-          className="flex items-center gap-2 font-bold text-2xl"
+        <Link
+          className="flex items-center gap-2 font-bold text-2xl hover:underline underline-offset-4"
+          href="/about"
         >
           BIECO GARCIA
-        </div>
+        </Link>
         <Link
           className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-sm"
           href="/portfolio"
