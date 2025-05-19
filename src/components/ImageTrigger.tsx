@@ -16,6 +16,7 @@ const ImageTrigger = ({ image, directoryName }: { image: ListBlobResultBlob, dir
     <>
       <button
         className="relative w-full h-auto mb-8 gap-8 z-0 cursor-pointer"
+        type="button"
         onClick={handleModal}
         aria-label="Open image in modal"
       >

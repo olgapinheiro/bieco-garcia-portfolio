@@ -9,7 +9,7 @@ const ImageModal = ({
   imageUrl: string
 }) => {
   const handleModal = () => {
-    setModalOpen(!modalOpen)
+    setModalOpen(false)
   }
 
   return (
@@ -27,7 +27,7 @@ const ImageModal = ({
             height={500}
             alt=""
             className='h-full w-full'
-            style={{ objectFit: 'contain', width: '100%', maxHeight: 'vh' }}
+            style={{ objectFit: 'contain', width: '100%'}}
           />
             <button
               type='button'
