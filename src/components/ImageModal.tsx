@@ -19,6 +19,8 @@ const ImageModal = ({
           className='z-10 fixed top-0 left-0 w-full h-full bg-white/95 flex justify-center items-center'
           role="dialog"
           aria-modal="true"
+          onClick={handleModal}
+        >
           <div className='bg-white shadow-lg m-8'>
             <Image
               src={imageUrl}
