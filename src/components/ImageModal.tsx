@@ -15,7 +15,10 @@ const ImageModal = ({
   return (
     <div>
       {modalOpen &&
-        <div className='z-10 fixed top-0 left-0 w-full h-full bg-white/95 flex justify-center items-center'>
+        <div
+          className='z-10 fixed top-0 left-0 w-full h-full bg-white/95 flex justify-center items-center'
+          role="dialog"
+          aria-modal="true"
           <div className='bg-white shadow-lg m-8'>
             <Image
               src={imageUrl}
@@ -29,6 +32,7 @@ const ImageModal = ({
                 type='button'
                 className='h-8 w-8 px-2 text-sm rounded-full bg-white/95 text-black cursor-pointer font-bold border border-gray-300/50'
                 onClick={handleModal}
+                aria-label="Close image"
               >
                 x
               </button>

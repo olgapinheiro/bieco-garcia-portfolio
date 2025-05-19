@@ -17,12 +17,13 @@ const ImageTrigger = ({ image, directoryName }: { image: ListBlobResultBlob, dir
       <button
         className="relative w-full h-auto mb-8 gap-8 z-0"
         onClick={handleModal}
+        aria-label="Open image in modal"
       >
         <Image
           src={image.url}
           width={500}
           height={500}
-          alt=""
+          alt={`Gallery image from ${directoryName}`}
           style={{ objectFit: 'contain', height: 'auto', width: '100%' }}
         />
       </button>
