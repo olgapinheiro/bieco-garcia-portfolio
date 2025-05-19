@@ -51,7 +51,7 @@ export default function Portfolio() {
               src={image.src}
               alt=""
               // sizes="(max-width: 768px) 100vw, 33vw"
-              className={`object-cover aspect-square`}
+              className="object-cover aspect-square"
               style={{
                 objectPosition: `${image.position}`,
               }}
@@ -60,6 +60,15 @@ export default function Portfolio() {
           <div className="py-4">{ image.label }</div>
         </div>
       ))}
+
+      <div className="grid grid-cols-1 aspect-square">
+        <Link
+          className="w-full text-center z-0 cursor-pointer border text-black font-lg hover:underline underline-offset-4 flex justify-center items-center"
+          href="/about"
+        >
+          contact
+        </Link>
+      </div>
     </main>
   );
 }
