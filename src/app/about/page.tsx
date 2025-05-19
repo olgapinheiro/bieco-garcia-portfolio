@@ -46,7 +46,13 @@ export default function About() {
             <p
               className="flex items-baseline gap-2 font-medium"
             >
-              contact: <span className="font-bold text-2xl">garciabieco@gmail.com</span>
+              contact:
+              <a
+                href="mailto:garciabieco@gmail.com"
+                className="font-bold text-2xl hover:underline cursor-pointer"
+              >
+                garciabieco@gmail.com
+              </a>
             </p>
           </div>
         </div>
