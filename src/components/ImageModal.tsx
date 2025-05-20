@@ -19,7 +19,9 @@ const ImageModal = ({
           className='z-10 fixed top-0 left-0 w-full h-full bg-white/95 dark:bg-black/95 flex justify-center items-center p-8'
           role="dialog"
           aria-modal="true"
+          tabIndex={0}
           onClick={handleModal}
+          onKeyDown={(e) => { console.log('e.key', e.key);  if (e.key.toLowerCase() === 'escape') handleModal() }}
         >
           <Image
             src={imageUrl}

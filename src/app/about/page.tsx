@@ -2,7 +2,7 @@
 export default function About() {
   return (
     <main className="flex flex-col place-items-center p-8 sm:p-16 lg:p-20">
-      <div className="text-center font-medium text-md max-w-2xl mb-8">
+      <div className="text-center font-medium text-lg max-w-2xl mb-8">
         Elevating Hospitality Brands with Compelling Visual Narratives.
       </div>
 
