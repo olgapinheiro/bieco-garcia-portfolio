@@ -1,12 +1,12 @@
 
 export default function About() {
   return (
-    <main className="flex flex-col place-items-center">
-      <div className="text-center font-medium text-md m-4">
+    <main className="flex flex-col place-items-center p-8 sm:p-16 lg:p-20">
+      <div className="text-center font-medium text-md max-w-2xl mb-8">
         Elevating Hospitality Brands with Compelling Visual Narratives.
       </div>
 
-      <div className="flex place-items-center max-w-4xl">
+      <div className="flex place-items-center max-w-2xl">
         {/* <div className="flex place-items-center m-20">
           // picture placeholder
           <Image
@@ -22,7 +22,7 @@ export default function About() {
           />
         </div> */}
         <div className="leading-6">
-          <div className="text-justify m-20 leading-6">
+          <div className="text-justify leading-6">
             <p className="mb-2">
               A photographer with a keen artistic eye and solid technical mastery.
             </p>
@@ -42,16 +42,29 @@ export default function About() {
             <p className="mb-8">
               By strategically combining technical proficiency with an astute understanding of light, he partners with brands and professionals seeking to enhance their market perception and achieve greater visibility.
             </p>
+          </div>
 
+          <div className="font-medium text-center">
             <p
-              className="flex items-baseline gap-2 font-medium"
+              className="text-center"
             >
-              contact:
               <a
                 href="mailto:garciabieco@gmail.com"
-                className="font-bold text-2xl hover:underline cursor-pointer"
+                className="font-bold text-xl hover:underline cursor-pointer text-center"
               >
                 garciabieco@gmail.com
+              </a>
+            </p>
+
+            <p
+              className="text-center"
+            >
+              <a
+                href="https://www.instagram.com/bieco.garcia/"
+                target="_blank"
+                className="font-bold text-xl hover:underline cursor-pointer text-center"
+              >
+                @bieco.garcia
               </a>
             </p>
           </div>
