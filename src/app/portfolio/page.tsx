@@ -63,7 +63,7 @@ export default function Portfolio() {
 
       <div className="grid grid-cols-1 aspect-square">
         <Link
-          className="w-full text-center z-0 cursor-pointer border text-black font-lg hover:underline underline-offset-4 flex justify-center items-center"
+          className="w-full text-center z-0 cursor-pointer border font-lg hover:underline underline-offset-4 flex justify-center items-center"
           href="/about"
         >
           contact
