@@ -12,10 +12,9 @@ export default function About() {
           <Image
             width="1138"
             height="1138"
-            src="/about/biecogarcia.JPG"
+            src="/about/biecogarcia.webp"
             alt=""
             sizes="(max-width: 768px) 100vw, 33vw"
-            // className={`object-cover`}
             style={{
               objectFit: 'contain',
             }}
