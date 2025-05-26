@@ -1,3 +1,4 @@
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -6,21 +7,20 @@ export default function About() {
         Elevating Hospitality Brands with Compelling Visual Narratives.
       </div>
 
-      <div className="flex place-items-center max-w-2xl">
-        {/* <div className="flex place-items-center m-20">
-          // picture placeholder
+      <div className="flex justify-center space-y-4 sm:space-x-4 max-w-4xl flex-wrap sm:flex-nowrap">
+        <div className="flex justify-start items-start">
           <Image
             width="1138"
             height="1138"
-            src=""
+            src="/about/biecogarcia.JPG"
             alt=""
-            // sizes="(max-width: 768px) 100vw, 33vw"
-            className={`object-cover aspect-square`}
+            sizes="(max-width: 768px) 100vw, 33vw"
+            // className={`object-cover`}
             style={{
               objectFit: 'contain',
             }}
           />
-        </div> */}
+        </div>
         <div className="leading-6">
           <div className="text-justify leading-6">
             <p className="mb-2">
