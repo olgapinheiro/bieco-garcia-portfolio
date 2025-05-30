@@ -23,6 +23,9 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Storage
+
+Pictures are stored at Vercel and we need to push a new commit to `main` after updating any content there.
 
 ## Learn More
 
