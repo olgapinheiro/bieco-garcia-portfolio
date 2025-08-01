@@ -1,4 +1,5 @@
 import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 import type { Metadata } from "next";
 import "../globals.css";
 
@@ -20,6 +21,7 @@ export default function PortfolioLayout({
       <div className="static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
         {children}
       </div>
+      <Footer />
     </>
   )
 }
