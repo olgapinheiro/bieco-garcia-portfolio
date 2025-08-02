@@ -3,7 +3,7 @@ import outsides from "../../../public/outsides/8-tabaobi.webp"
 import insides from "../../../public/insides/11-filhadaluapipa.webp"
 import foodsAndDrinks from "../../../public/foods-and-drinks/2-refugiodoriobonito.webp"
 import lifestyle from "../../../public/lifestyle/4_filhadaluapipa.webp"
-import destinations from "../../../public/destinations/1-reveilloncarneiros.webp"
+import landscapeAndWildlife from "../../../public/landscape-and-wildlife/1-reveilloncarneiros.webp"
 import about from "../../../public/about/biecogarcia.webp"
 import Link from "next/link";
 
