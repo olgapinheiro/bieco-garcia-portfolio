@@ -9,7 +9,12 @@ It's currently not open to contributions, though you can fork this project for l
 
 ## Getting Started
 
-First, run the development server:
+Make sure you have node installed, then install dependencies:
+```bash
+npm i
+```
+
+To run the development server:
 
 ```bash
 npm run dev

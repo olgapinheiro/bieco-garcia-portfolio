@@ -1,0 +1,5 @@
+export * from './instagram'
+export * from './email'
+export * from './menu-hamburguer'
+export * from './whatsapp'
+export * from './xmark'

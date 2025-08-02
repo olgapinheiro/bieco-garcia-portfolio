@@ -1,4 +1,4 @@
-import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 import type { Metadata } from "next";
 import "../globals.css";
 
@@ -16,8 +16,8 @@ export default function PortfolioLayout({
     <>
       {/* Layout UI */}
       {/* Place children where you want to render a page or nested layout */}
-      <Header />
       {children}
+      <Footer />
     </>
   )
 }
