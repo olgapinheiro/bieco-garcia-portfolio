@@ -1,11 +1,12 @@
 'use client'
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { MenuHamburger, XmarkIcon } from "./icons";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 export default function NavMobile() {
 	const [isOpen, setIsOpen] = useState(false)
+	const [isPending, startTransition] = useTransition();
 
 	if (!isOpen) {
 		return (
@@ -32,7 +33,11 @@ export default function NavMobile() {
 			<div className="h-full flex flex-col md:hidden gap-8 flex-wrap items-center justify-center">
 				<div className="flex flex-col md:hidden gap-3 flex-wrap items-center justify-center">
 					<Link
-						onClick={() => setTimeout(()=> setIsOpen(false), 500)}
+						onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
 						className=""
 						href="/portfolio"
 					>
@@ -40,7 +45,11 @@ export default function NavMobile() {
 					</Link>
 
 					<Link
-						onClick={() => setTimeout(()=> setIsOpen(false), 500)}
+						onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
 						className=""
 						href="/about"
 					>
