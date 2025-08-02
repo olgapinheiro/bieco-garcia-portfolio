@@ -54,7 +54,14 @@ const IMAGES = [
 
 export default function Portfolio() {
   return (
+    <>
+      <div className="w-full flex items-center p-16">
+        <p className="max-w-sm text-center mx-auto">
+          International photographer specializing in luxury hospitality, architecture, and food & beverage photography available worldwide.
+        </p>
+      </div>
     <main className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 p-8 xs:p-16 gap-4 sm:gap-x-16 sm:gap-y-4 md:gap-x-32">
+
       {IMAGES.map((image) => (
         <div className="grid grid-cols-1 justify-items-center" key={`cover-${image.key}`}>
           <Link className="relative w-full" href={image.link}>
@@ -74,5 +81,6 @@ export default function Portfolio() {
         </div>
       ))}
     </main>
+    </>
   );
 }
