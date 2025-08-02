@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import { XmarkIcon } from './icons';
 
 const ImageModal = ({
   modalOpen, setModalOpen, imageUrl
@@ -16,29 +17,34 @@ const ImageModal = ({
     <div>
       {modalOpen &&
         <div
-          className='z-10 fixed top-0 left-0 w-full h-full bg-white/95 dark:bg-black/95 flex justify-center items-center p-8'
+          className='z-10 fixed top-0 left-0 size-full max-h-svh bg-white/98 dark:bg-black/98 flex flex-col justify-center items-center p-0 cursor-pointer'
           role="dialog"
           aria-modal="true"
           tabIndex={0}
           onClick={handleModal}
-          onKeyDown={(e) => { console.log('e.key', e.key);  if (e.key.toLowerCase() === 'escape') handleModal() }}
+          onKeyDown={(e) => { if (e.key === 'Escape') handleModal() }}
         >
-          <Image
-            src={imageUrl}
-            width={500}
-            height={500}
-            alt=""
-            className='h-full w-full'
-            style={{ objectFit: 'contain', width: '100%'}}
-          />
+          <div className="w-full flex flex-row justify-end p-4">
             <button
               type='button'
-              className='fixed bottom-8 sm:bottom-auto sm:inset-y-8 right-4 sm:right-8 h-8 w-8 px-2 text-sm rounded-full bg-white/50 dark:bg-black/50 cursor-pointer font-bold border border-gray-300/50'
               onClick={handleModal}
               aria-label="Close image"
+              className="hover:opacity-70 focus:opacity-70 transition-opacity cursor-pointer"
             >
-              x
+              <XmarkIcon />
             </button>
+          </div>
+
+          <div className='flex-1 min-h-0 pb-4'>
+            <Image
+              src={imageUrl}
+              width={500}
+              height={500}
+              alt=""
+              className='size-full'
+              style={{ objectFit: 'contain', width: '100%'}}
+            />
+          </div>
         </div>
       }
 
