@@ -12,7 +12,11 @@ export default function NavMobile() {
 		return (
 			<button
 				className="md:hidden"
-				onClick={() => setIsOpen(!isOpen)}>
+				onClick={() => {
+					startTransition(() => {
+						setIsOpen(true);
+					});
+				}}>
 				<MenuHamburger />
 			</button>
 		)
@@ -20,13 +24,21 @@ export default function NavMobile() {
 
 	return (
 		<div
-			className="isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-10 md:hidden"
+			className={`isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-10 md:hidden transition-opacity duration-300 ${isPending ? 'opacity-0' : 'opacity-100'}`}
 			role="navigation"
 			tabIndex={0}
-			onKeyDown={(e) => { if (e.key.toLowerCase() === 'escape') setIsOpen(false) }}
+			onKeyDown={(e) => { if (e.key.toLowerCase() === 'escape') startTransition(() => {
+				setIsOpen(false)
+			})}}
 		>
 			<div className="flex flex-row justify-end p-4">
-				<button onClick={() => setIsOpen(false)}>
+				<button
+					onClick={() => {
+						startTransition(() => {
+							setIsOpen(false);
+						});
+					}}
+				>
 					<XmarkIcon />
 				</button>
 			</div>
@@ -34,11 +46,10 @@ export default function NavMobile() {
 				<div className="flex flex-col md:hidden gap-3 flex-wrap items-center justify-center">
 					<Link
 						onClick={() => {
-								startTransition(() => {
-									setIsOpen(false);
-								});
-							}}
-						className=""
+							startTransition(() => {
+								setIsOpen(false);
+							});
+						}}
 						href="/portfolio"
 					>
 						Work
