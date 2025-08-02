@@ -22,7 +22,7 @@ const ImageModal = ({
           aria-modal="true"
           tabIndex={0}
           onClick={handleModal}
-          onKeyDown={(e) => { if (e.key.toLowerCase() === 'escape') handleModal() }}
+          onKeyDown={(e) => { if (e.key === 'Escape') handleModal() }}
         >
           <div className="w-full flex flex-row justify-end p-4">
             <button
