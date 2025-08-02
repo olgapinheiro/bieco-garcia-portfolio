@@ -42,31 +42,6 @@ export default function About() {
               By strategically combining technical proficiency with an astute understanding of light, he partners with brands and professionals seeking to enhance their market perception and achieve greater visibility.
             </p>
           </div>
-
-          <div className="font-medium text-center">
-            <p
-              className="text-center"
-            >
-              <a
-                href="mailto:garciabieco@gmail.com"
-                className="font-bold text-xl hover:underline cursor-pointer text-center"
-              >
-                garciabieco@gmail.com
-              </a>
-            </p>
-
-            <p
-              className="text-center"
-            >
-              <a
-                href="https://www.instagram.com/bieco.garcia/"
-                target="_blank"
-                className="font-bold text-xl hover:underline cursor-pointer text-center"
-              >
-                @bieco.garcia
-              </a>
-            </p>
-          </div>
         </div>
       </div>
     </main>
