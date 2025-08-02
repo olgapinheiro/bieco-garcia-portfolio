@@ -27,9 +27,14 @@ export default function NavMobile() {
 			className={`isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-10 md:hidden transition-opacity duration-700 ${isPending ? 'opacity-0' : 'opacity-100'}`}
 			role="navigation"
 			tabIndex={0}
-			onKeyDown={(e) => { if (e.key === 'Escape') startTransition(() => {
-				setIsOpen(false)
-			})}}
+			onKeyDown={(e) => {
+				if (e.key === 'Escape'){
+					e.preventDefault()
+					startTransition(() => {
+						setIsOpen(false)
+					})
+				}
+			}}
 		>
 			<div className="flex flex-row justify-end p-4">
 				<button
