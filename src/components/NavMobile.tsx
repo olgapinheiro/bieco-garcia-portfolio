@@ -24,7 +24,7 @@ export default function NavMobile() {
 
 	return (
 		<div
-			className={`isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-10 md:hidden transition-opacity duration-300 ${isPending ? 'opacity-0' : 'opacity-100'}`}
+			className={`isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-10 md:hidden transition-opacity duration-700 ${isPending ? 'opacity-0' : 'opacity-100'}`}
 			role="navigation"
 			tabIndex={0}
 			onKeyDown={(e) => { if (e.key.toLowerCase() === 'escape') startTransition(() => {
