@@ -37,10 +37,10 @@ const IMAGES = [
     position: 'center',
   },
   {
-    src: destinations,
-    label: 'destinations',
-    key: 'destinations',
-    link: 'portfolio/destinations',
+    src: landscapeAndWildlife,
+    label: 'landscape & wildlife',
+    key: 'landscape-and-wildlife',
+    link: 'portfolio/landscape-and-wildlife',
     position: 'center',
   },
   {
@@ -60,27 +60,27 @@ export default function Portfolio() {
           International photographer specializing in luxury hospitality, architecture, and food & beverage photography available worldwide.
         </p>
       </div>
-    <main className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 p-8 xs:p-16 gap-4 sm:gap-x-16 sm:gap-y-4 md:gap-x-32">
+      <main className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 p-8 xs:p-16 gap-4 sm:gap-x-16 sm:gap-y-4 md:gap-x-32">
 
-      {IMAGES.map((image) => (
-        <div className="grid grid-cols-1 justify-items-center" key={`cover-${image.key}`}>
-          <Link className="relative w-full" href={image.link}>
-            <Image
-              width="1138"
-              height="1138"
-              src={image.src}
-              alt=""
-              // sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover aspect-square"
-              style={{
-                objectPosition: `${image.position}`,
-              }}
-            />
-          </Link>
-          <div className="py-4">{ image.label }</div>
-        </div>
-      ))}
-    </main>
+        {IMAGES.map((image) => (
+          <div className="grid grid-cols-1 justify-items-center" key={`cover-${image.key}`}>
+            <Link className="relative w-full" href={image.link}>
+              <Image
+                width="1138"
+                height="1138"
+                src={image.src}
+                alt=""
+                // sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover aspect-square"
+                style={{
+                  objectPosition: `${image.position}`,
+                }}
+              />
+            </Link>
+            <div className="py-4">{ image.label }</div>
+          </div>
+        ))}
+      </main>
     </>
   );
 }
