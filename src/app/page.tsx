@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -8,11 +7,10 @@ export default function Home() {
         <Link href="/portfolio">
           {/* <!-- Background image --> */}
           <div
-            className="h-screen bg-center bg-cover bg-no-repeat bg-[url(/outsides/2-thewestinportodegalinhas.webp)]"></div>
+            className="h-screen bg-center bg-cover bg-no-repeat hover:bg-blend-darken transition-all duration-700 ease-in-out bg-[url(/outsides/2-thewestinportodegalinhas.webp)]"></div>
           {/* <!-- Background image --> */}
         </Link>
       </main>
-      <Footer className="fixed inset-x-0 bottom-0" />
     </div>
   );
 }
