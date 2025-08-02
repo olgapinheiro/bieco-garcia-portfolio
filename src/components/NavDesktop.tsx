@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { EmailIcon, InstagramIcon, WhatsappIcon } from "./icons";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 

@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { InstagramIcon, WhatsappIcon, EmailIcon } from "./icons";
 import SocialMediaIcons from "./SocialMediaIcons";
 
 interface FooterProps {
