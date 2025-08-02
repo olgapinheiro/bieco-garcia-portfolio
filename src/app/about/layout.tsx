@@ -4,7 +4,7 @@ import "../globals.css";
 
 export const metadata: Metadata = {
   title: "BIECO GARCIA - Portfolio",
-  description: "Photographer",
+  description: "International photographer specializing in luxury hospitality, architecture, and food & beverage photography available worldwide.",
 };
 
 export default function PortfolioLayout({
