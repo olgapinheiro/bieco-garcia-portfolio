@@ -17,7 +17,7 @@ const ImageModal = ({
     <div>
       {modalOpen &&
         <div
-          className='z-10 fixed top-0 left-0 w-full h-full bg-white/98 dark:bg-black/98 flex flex-col justify-center items-center p-0'
+          className='z-10 fixed top-0 left-0 size-full max-h-svh bg-white/98 dark:bg-black/98 flex flex-col justify-center items-center p-0 cursor-pointer'
           role="dialog"
           aria-modal="true"
           tabIndex={0}
@@ -25,23 +25,26 @@ const ImageModal = ({
           onKeyDown={(e) => { if (e.key.toLowerCase() === 'escape') handleModal() }}
         >
           <div className="w-full flex flex-row justify-end p-4">
-          <button
-            type='button'
-            onClick={handleModal}
-            aria-label="Close image"
-          >
-            <XmarkIcon />
+            <button
+              type='button'
+              onClick={handleModal}
+              aria-label="Close image"
+              className="hover:opacity-70 focus:opacity-70 transition-opacity cursor-pointer"
+            >
+              <XmarkIcon />
             </button>
           </div>
 
-          <Image
-            src={imageUrl}
-            width={500}
-            height={500}
-            alt=""
-            className='h-full w-full'
-            style={{ objectFit: 'contain', width: '100%'}}
-          />
+          <div className='grow'>
+            <Image
+              src={imageUrl}
+              width={500}
+              height={500}
+              alt=""
+              className='size-full'
+              style={{ objectFit: 'contain', width: '100%'}}
+            />
+          </div>
         </div>
       }
 
