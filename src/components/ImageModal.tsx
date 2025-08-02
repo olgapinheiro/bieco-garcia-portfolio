@@ -35,7 +35,7 @@ const ImageModal = ({
             </button>
           </div>
 
-          <div className='grow'>
+          <div className='flex-1 min-h-0 pb-4'>
             <Image
               src={imageUrl}
               width={500}
