@@ -18,7 +18,7 @@ export default function NavMobile() {
 	}
 
 	return (
-		<div className="isolate fixed w-full h-full top-0 left-0 bg-white opacity-98 items-center z-1 md:hidden">
+		<div className="isolate fixed w-full h-full top-0 left-0 bg-white opacity-98 items-center z-10 md:hidden">
 			<div className="flex flex-row justify-end p-4">
 				<button onClick={() => setIsOpen(!isOpen)}>
 					<XmarkIcon />
