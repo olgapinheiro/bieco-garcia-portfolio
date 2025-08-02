@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MenuHamburger, XmarkIcon } from "./icons";
 import SocialMediaIcons from "./SocialMediaIcons";
 
-export default function NavDesktop() {
+export default function NavMobile() {
 	const [isOpen, setIsOpen] = useState(false)
 
 	if (!isOpen) {
