@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "BIECO GARCIA",
-  description: "Photographer",
+  description: "International photographer specializing in luxury hospitality, architecture, and food photography worldwide.",
 };
 
 export default function RootLayout({
