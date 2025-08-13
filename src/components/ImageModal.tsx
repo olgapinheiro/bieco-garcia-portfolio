@@ -17,7 +17,7 @@ const ImageModal = ({
     <div>
       {modalOpen &&
         <div
-          className='z-10 fixed top-0 left-0 size-full max-h-svh bg-white/98 dark:bg-black/98 flex flex-col justify-center items-center p-0 cursor-pointer'
+          className='z-10 fixed top-0 left-0 size-full bg-white/98 dark:bg-black/98 flex flex-col justify-center items-center p-0 cursor-pointer'
           role="dialog"
           aria-modal="true"
           tabIndex={0}
@@ -35,7 +35,7 @@ const ImageModal = ({
             </button>
           </div>
 
-          <div className='grow pb-4'>
+          <div className='flex-1 min-h-0 pb-4'>
             <Image
               src={imageUrl}
               width={500}
