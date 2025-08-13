@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "BIECO GARCIA - Portfolio",
+  title: "BIECO GARCIA - Luxury Hotel Photography",
   description: "International photographer specializing in luxury hospitality, architecture, and food photography worldwide.",
 };
 
