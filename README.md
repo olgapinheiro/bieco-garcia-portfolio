@@ -1,4 +1,4 @@
-# Bieco Garcia - Photographer
+# Bieco Garcia - International Photographer
 
 This project features the portfolio of Bieco Garcia, a talented brazilian photographer mainly focused in the hospitality industry.
 
