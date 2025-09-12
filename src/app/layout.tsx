@@ -19,7 +19,10 @@ export const metadata: Metadata = {
   title: "BIECO GARCIA - Luxury Hotel Photography",
   description: "International photographer specializing in luxury hospitality, architecture, and food photography worldwide.",
   keywords: ["Bieco Garcia", "Luxury Hotel Photography", "International Photographer"],
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: "/favicon.ico",
   },
