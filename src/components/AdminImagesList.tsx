@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useTransition } from 'react';
+import React, { useCallback, useState, useTransition } from 'react';
 import { TransitionPanel } from '@/components/motion-primitives/transition-panel';
 import { getImagesAction } from '@/actions/getImagesAction';
 import { deleteImagesAction, deleteImageAction, type DeleteResult } from '@/actions/deleteImagesAction';
@@ -33,7 +33,8 @@ export default function AdminImagesList() {
   const [folderImages, setFolderImages] = useState<FolderImages>({});
 
   // Load images for a specific folder
-  const loadFolderImages = async (folder: string) => {
+  // use useCallback
+  const loadFolderImages = useCallback(async (folder: string) => {
     if (folderImages[folder]) return; // Already loaded
 
     try {
@@ -54,7 +55,7 @@ export default function AdminImagesList() {
     } catch (error) {
       console.error(`Failed to load images for ${folder}:`, error);
     }
-  };
+  }, [folderImages]);
 
   // Load images when tab changes
   const handleTabChange = (index: number) => {
