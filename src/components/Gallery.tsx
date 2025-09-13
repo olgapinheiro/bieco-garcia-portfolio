@@ -1,5 +1,5 @@
 'use client'
-import { ImageArray } from "@/utils/getImagesAction";
+import { ImageArray } from "@/actions/getImagesAction";
 import { use } from "react";
 import ImageTrigger from "./ImageTrigger";
 
