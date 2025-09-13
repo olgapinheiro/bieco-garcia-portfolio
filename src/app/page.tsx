@@ -74,10 +74,20 @@ export default function Home() {
         behavior,
         block: 'start'
       });
-      // Reset scrolling state after animation
+
+      // Listen for scroll end event
+      const handleScrollEnd = () => {
+        isScrolling.current = false;
+        window.removeEventListener('scrollend', handleScrollEnd);
+      };
+      window.addEventListener('scrollend', handleScrollEnd);
+
+      // Fallback: Timeout in case scrollend isn't supported
       setTimeout(() => {
-        isScrolling.current = false
+        isScrolling.current = false;
+        window.removeEventListener('scrollend', handleScrollEnd);
       }, 1000);
+
     }
   };
 
