@@ -1,5 +1,5 @@
 import Gallery from "@/components/Gallery";
-import { getImagesAction } from "@/utils/getImagesAction";
+import { getImagesAction } from "@/actions/getImagesAction";
 import { Suspense } from "react";
 
 const LifestylePage = () => {
