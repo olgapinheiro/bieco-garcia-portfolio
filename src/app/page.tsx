@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const lastScrollY = useRef(0);
+  const rafId = useRef<number | null>(null);
   const isScrolling = useRef(false);
 
   useEffect(() => {
@@ -32,35 +33,48 @@ export default function Home() {
       // Don't interfere if we're currently performing a smooth scroll
       if (isScrolling.current) return;
 
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY.current;
-      const heroHeight = window.innerHeight;
-      const portfolioSection = document.getElementById('portfolio-section');
-
-      if (!portfolioSection) return;
-
-      const portfolioTop = portfolioSection.offsetTop;
-
-      // Determine current section based on scroll position
-      const inHeroSection = currentScrollY < heroHeight / 2;
-      const inPortfolioSection = currentScrollY >= heroHeight / 2;
-
-      // Apply snap scrolling logic
-      if (inHeroSection && isScrollingDown && currentScrollY > 50) {
-        // User is in hero section and scrolling down -> snap to portfolio
-        scrollToSection('portfolio-section');
-      } else if (inPortfolioSection && !isScrollingDown && currentScrollY < portfolioTop + 100) {
-        // User is in portfolio section and scrolling up -> snap to hero
-        scrollToSection('hero-section');
+      // Cancel previous RAF if it exists
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
       }
 
-      lastScrollY.current = currentScrollY;
+      // Use requestAnimationFrame for optimal performance
+      rafId.current = requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const isScrollingDown = currentScrollY > lastScrollY.current;
+        const heroHeight = window.innerHeight;
+        const portfolioSection = document.getElementById('portfolio-section');
+
+        if (!portfolioSection) return;
+
+        const portfolioTop = portfolioSection.offsetTop;
+
+        // Determine current section based on scroll position
+        const inHeroSection = currentScrollY < heroHeight / 2;
+        const inPortfolioSection = currentScrollY >= heroHeight / 2;
+
+        // Apply snap scrolling logic
+        if (inHeroSection && isScrollingDown && currentScrollY > 50) {
+          // User is in hero section and scrolling down -> snap to portfolio
+          scrollToSection('portfolio-section');
+        } else if (inPortfolioSection && !isScrollingDown && currentScrollY < portfolioTop + 100) {
+          // User is in portfolio section and scrolling up -> snap to hero
+          scrollToSection('hero-section');
+        }
+
+        lastScrollY.current = currentScrollY;
+        rafId.current = null;
+      });
     };
 
     // Add scroll listener after initial animation completes
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      // Clean up any pending RAF
+      if (rafId.current) {
+        cancelAnimationFrame(rafId.current);
+      }
     };
   }, []);
 
