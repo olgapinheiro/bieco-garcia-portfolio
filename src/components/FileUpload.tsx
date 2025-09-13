@@ -17,46 +17,36 @@ export default function FileUpload() {
   const [uploading, setUploading] = useState(false);
   const [result, setResult] = useState<UploadResult | null>(null);
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-
-    if (!inputFileRef.current?.files || inputFileRef.current.files.length === 0) {
-      setResult({
-        success: false,
-        message: 'No files selected',
-        error: 'Please select at least one file'
-      });
-      return;
-    }
-
-    const files = Array.from(inputFileRef.current.files);
-    setUploading(true);
-    setResult(null);
-
-    try {
-      const uploadResult = await uploadImageAction(selectedFolder, files);
-      setResult(uploadResult);
-
-      // Reset form on success
-      if (uploadResult.success && inputFileRef.current) {
-        inputFileRef.current.value = '';
-      }
-    } catch (error) {
-      setResult({
-        success: false,
-        message: 'Upload failed',
-        error: error instanceof Error ? error.message : 'Unknown error'
-      });
-    } finally {
-      setUploading(false);
-    }
-  };
 
   return (
     <div className="bg-white border border-black p-6 rounded-none">
       <h2 className="text-2xl font-bold text-black mb-6">Upload Images</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form
+        action={async (formData) => {
+          setUploading(true);
+          setResult(null);
+
+          try {
+            const uploadResult = await uploadImageAction(formData);
+            setResult(uploadResult);
+
+            // Reset form on success
+            if (uploadResult.success && inputFileRef.current) {
+              inputFileRef.current.value = '';
+            }
+          } catch (error) {
+            setResult({
+              success: false,
+              message: 'Upload failed',
+              error: error instanceof Error ? error.message : 'Unknown error'
+            });
+          } finally {
+            setUploading(false);
+          }
+        }}
+        className="space-y-4"
+      >
         {/* Folder Selector */}
         <div>
           <label htmlFor="folder" className="block text-sm font-medium text-black mb-2">
@@ -64,6 +54,7 @@ export default function FileUpload() {
           </label>
           <select
             id="folder"
+            name="folder"
             value={selectedFolder}
             onChange={(e) => setSelectedFolder(e.target.value)}
             className="w-full p-3 border border-black bg-white text-black focus:outline-none focus:ring-2 focus:ring-black"

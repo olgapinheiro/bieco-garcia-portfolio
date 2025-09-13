@@ -11,15 +11,17 @@ export type UploadResult = {
 
 /**
  * Upload one or more images to a specific folder in Vercel Blob
- * @param folder - The folder name where images will be stored
- * @param files - Array of File objects to upload
+ * @param formData - FormData containing the folder and files
  * @returns Promise<UploadResult>
  */
 export const uploadImageAction = async (
-  folder: string,
-  files: File[]
+  formData: FormData
 ): Promise<UploadResult> => {
   try {
+    // Extract folder and files from FormData
+    const folder = formData.get('folder') as string;
+    const files = formData.getAll('files') as File[];
+
     if (!files || files.length === 0) {
       return {
         success: false,
