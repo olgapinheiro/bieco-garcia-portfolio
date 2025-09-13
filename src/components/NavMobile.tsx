@@ -24,7 +24,7 @@ export default function NavMobile() {
 
 	return (
 		<div
-			className={`isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-10 md:hidden transition-opacity duration-700 ${isPending ? 'opacity-0' : 'opacity-100'}`}
+			className={`isolate fixed w-full h-full top-0 left-0 bg-white/98 dark:bg-black/98 items-center z-20 md:hidden transition-opacity duration-700 ${isPending ? 'opacity-0' : 'opacity-100'}`}
 			role="navigation"
 			tabIndex={0}
 			onKeyDown={(e) => {
@@ -47,18 +47,62 @@ export default function NavMobile() {
 					<XmarkIcon />
 				</button>
 			</div>
+
 			<div className="h-full flex flex-col md:hidden gap-8 flex-wrap items-center justify-center">
-				<div className="flex flex-col md:hidden gap-3 flex-wrap items-center justify-center">
-					<Link
-						onClick={() => {
-							startTransition(() => {
-								setIsOpen(false);
-							});
-						}}
-						href="/portfolio"
-					>
-						Work
-					</Link>
+				<div className="flex flex-col md:hidden gap-6 flex-wrap items-center justify-center">
+
+					<div className="flex flex-col md:hidden gap-1 flex-wrap items-center justify-center">
+						<Link
+							onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
+							href="/portfolio/outsides"
+						>
+							Outsides
+						</Link>
+						<Link
+							onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
+							href="/portfolio/insides"
+						>
+							Insides
+						</Link>
+						<Link
+							onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
+							href="/portfolio/foods-and-drinks"
+						>
+							Foods & Drinks
+						</Link>
+						<Link
+							onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
+							href="/portfolio/lifestyle"
+						>
+							Lifestyle
+						</Link>
+						<Link
+							onClick={() => {
+								startTransition(() => {
+									setIsOpen(false);
+								});
+							}}
+							href="/portfolio/landscape-and-wildlife"
+						>
+							Landscape & Wildlife
+						</Link>
+					</div>
 
 					<Link
 						onClick={() => {
