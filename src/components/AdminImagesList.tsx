@@ -4,6 +4,7 @@ import React, { useState, useTransition } from 'react';
 import { TransitionPanel } from '@/components/motion-primitives/transition-panel';
 import { getImagesAction } from '@/actions/getImagesAction';
 import { deleteImagesAction, deleteImageAction, type DeleteResult } from '@/actions/deleteImagesAction';
+import Image from 'next/image';
 
 const FOLDERS = [
   { value: 'foods-and-drinks', label: 'Foods & Drinks' },
@@ -122,7 +123,7 @@ export default function AdminImagesList() {
   // Load initial folder
   React.useEffect(() => {
     loadFolderImages(FOLDERS[activeTab].value);
-  }, []);
+  }, [activeTab, loadFolderImages]);
 
   const currentFolder = FOLDERS[activeTab].value;
   const currentImages = folderImages[currentFolder] || [];
@@ -215,12 +216,14 @@ export default function AdminImagesList() {
                     </button>
 
                     {/* Image */}
-                    <img
+                    <Image
                       src={image.url}
                       alt={image.pathname}
                       className="w-full h-32 object-cover cursor-pointer"
                       onClick={() => toggleImageSelection(image.url)}
                       loading="lazy"
+                      width={300}
+                      height={300}
                     />
 
                     {/* Image Info */}
