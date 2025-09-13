@@ -81,7 +81,7 @@ export default function Home() {
   const scrollToSection = (sectionId: string) => {
     const sectionToScroll = document.getElementById(sectionId);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const behavior = reducedMotion ? 'instant' : 'smooth';
+    const behavior: ScrollBehavior = reducedMotion ? 'instant' : 'smooth';
     if (sectionToScroll) {
       isScrolling.current = true
       sectionToScroll.scrollIntoView({
