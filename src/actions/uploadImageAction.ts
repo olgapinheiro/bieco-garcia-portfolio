@@ -50,7 +50,7 @@ export const uploadImageAction = async (
 
       // Create filename with timestamp to avoid conflicts
       const timestamp = Date.now();
-      const fileExtension = file.name.split('.').pop();
+      const _fileExtension = file.name.split('.').pop();
       const filename = `${timestamp}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
       const pathname = `${folder}/${filename}`;
 

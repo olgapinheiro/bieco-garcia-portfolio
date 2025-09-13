@@ -2,7 +2,7 @@
 
 import React, { useState, useTransition } from 'react';
 import { TransitionPanel } from '@/components/motion-primitives/transition-panel';
-import { getImagesAction, type ImageArray } from '@/actions/getImagesAction';
+import { getImagesAction } from '@/actions/getImagesAction';
 import { deleteImagesAction, deleteImageAction, type DeleteResult } from '@/actions/deleteImagesAction';
 
 const FOLDERS = [
@@ -177,7 +177,7 @@ export default function AdminImagesList() {
         }}
         transition={{ duration: 0.3 }}
       >
-        {FOLDERS.map((folder, index) => (
+        {FOLDERS.map((folder) => (
           <div key={folder.value} className="space-y-4">
             {currentImages.length === 0 ? (
               <div className="text-center py-12 text-gray-500">
