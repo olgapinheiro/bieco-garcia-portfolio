@@ -24,6 +24,25 @@ export const deleteImagesAction = async (urls: string[]): Promise<DeleteResult> 
       };
     }
 
+    const isValidBlobUrl = (input: string) => {
+      try {
+        const u = new URL(input);
+        return u.hostname.endsWith('.vercel-storage.com');
+      } catch {
+        return false;
+      }
+    };
+
+    const invalid = urls.filter((u) => !isValidBlobUrl(u));
+    if (invalid.length > 0) {
+      return {
+        success: false,
+        message: 'Invalid blob URL(s) detected',
+        error: `Invalid URLs: ${invalid.join(', ')}`
+
+      };
+    }
+
     // Delete all images in parallel
     const deletePromises = urls.map(async (url) => {
       try {
