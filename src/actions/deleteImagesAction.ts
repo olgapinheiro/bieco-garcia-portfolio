@@ -1,6 +1,7 @@
 'use server'
 
 import { del } from '@vercel/blob';
+import { auth } from '@clerk/nextjs/server';
 
 export type DeleteResult = {
   success: boolean;
@@ -16,6 +17,16 @@ export type DeleteResult = {
  */
 export const deleteImagesAction = async (urls: string[]): Promise<DeleteResult> => {
   try {
+    // Check authentication
+    const { userId } = await auth();
+    if (!userId) {
+      return {
+        success: false,
+        message: 'Unauthorized',
+        error: 'You must be logged in to delete images'
+      };
+    }
+
     if (!urls || urls.length === 0) {
       return {
         success: false,
@@ -24,22 +35,23 @@ export const deleteImagesAction = async (urls: string[]): Promise<DeleteResult> 
       };
     }
 
-    const isValidBlobUrl = (input: string) => {
+    // Validate that all URLs are from Vercel Blob storage
+    const isValidBlobUrl = (url: string) => {
       try {
-        const u = new URL(input);
-        return u.hostname.endsWith('.vercel-storage.com');
+        const urlObj = new URL(url);
+        return urlObj.hostname.endsWith('.vercel-storage.com') ||
+               urlObj.hostname.endsWith('.public.blob.vercel-storage.com');
       } catch {
         return false;
       }
     };
 
-    const invalid = urls.filter((u) => !isValidBlobUrl(u));
-    if (invalid.length > 0) {
+    const invalidUrls = urls.filter(url => !isValidBlobUrl(url));
+    if (invalidUrls.length > 0) {
       return {
         success: false,
-        message: 'Invalid blob URL(s) detected',
-        error: `Invalid URLs: ${invalid.join(', ')}`
-
+        message: 'Invalid URLs provided',
+        error: 'All URLs must be from Vercel Blob storage'
       };
     }
 
@@ -90,11 +102,40 @@ export const deleteImagesAction = async (urls: string[]): Promise<DeleteResult> 
  */
 export const deleteImageAction = async (url: string): Promise<DeleteResult> => {
   try {
+    // Check authentication
+    const { userId } = await auth();
+    if (!userId) {
+      return {
+        success: false,
+        message: 'Unauthorized',
+        error: 'You must be logged in to delete images'
+      };
+    }
+
     if (!url || url.trim() === '') {
       return {
         success: false,
         message: 'No URL provided',
         error: 'URL is required'
+      };
+    }
+
+    // Validate that the URL is from Vercel Blob storage
+    const isValidBlobUrl = (url: string) => {
+      try {
+        const urlObj = new URL(url);
+        return urlObj.hostname.endsWith('.vercel-storage.com') ||
+               urlObj.hostname.endsWith('.public.blob.vercel-storage.com');
+      } catch {
+        return false;
+      }
+    };
+
+    if (!isValidBlobUrl(url)) {
+      return {
+        success: false,
+        message: 'Invalid URL provided',
+        error: 'URL must be from Vercel Blob storage'
       };
     }
 

@@ -1,6 +1,7 @@
 'use server'
 
 import { put } from '@vercel/blob';
+import { auth } from '@clerk/nextjs/server';
 
 export type UploadResult = {
   success: boolean;
@@ -18,6 +19,16 @@ export const uploadImageAction = async (
   formData: FormData
 ): Promise<UploadResult> => {
   try {
+    // Check authentication
+    const { userId } = await auth();
+    if (!userId) {
+      return {
+        success: false,
+        message: 'Unauthorized',
+        error: 'You must be logged in to upload images'
+      };
+    }
+
     // Extract folder and files from FormData
     const folder = formData.get('folder') as string;
     const files = formData.getAll('files') as File[];
@@ -35,6 +46,23 @@ export const uploadImageAction = async (
         success: false,
         message: 'No folder specified',
         error: 'Folder name is required'
+      };
+    }
+
+    // Validate folder name to prevent directory traversal
+    const allowedFolders = [
+      'foods-and-drinks',
+      'insides',
+      'destinations',
+      'lifestyle',
+      'outsides'
+    ];
+
+    if (!allowedFolders.includes(folder)) {
+      return {
+        success: false,
+        message: 'Invalid folder specified',
+        error: 'Folder must be one of the allowed values'
       };
     }
 
