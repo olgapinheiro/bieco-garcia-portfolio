@@ -66,10 +66,12 @@ export default function Home() {
 
   const scrollToSection = (sectionId: string) => {
     const sectionToScroll = document.getElementById(sectionId);
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const behavior = reducedMotion ? 'instant' : 'smooth';
     if (sectionToScroll) {
       isScrolling.current = true
       sectionToScroll.scrollIntoView({
-        behavior: 'smooth',
+        behavior,
         block: 'start'
       });
       // Reset scrolling state after animation
