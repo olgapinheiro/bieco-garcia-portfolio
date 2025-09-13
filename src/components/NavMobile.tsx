@@ -50,15 +50,55 @@ export default function NavMobile() {
 			<div className="h-full flex flex-col md:hidden gap-8 flex-wrap items-center justify-center">
 				<div className="flex flex-col md:hidden gap-3 flex-wrap items-center justify-center">
 					<Link
-						onClick={() => {
-							startTransition(() => {
-								setIsOpen(false);
-							});
-						}}
-						href="/portfolio"
-					>
-						Work
-					</Link>
+					onClick={() => {
+						startTransition(() => {
+							setIsOpen(false);
+						});
+					}}
+					href="/portfolio/outsides"
+				>
+					Outsides
+				</Link>
+				<Link
+					onClick={() => {
+						startTransition(() => {
+							setIsOpen(false);
+						});
+					}}
+					href="/portfolio/insides"
+				>
+					Insides
+				</Link>
+				<Link
+					onClick={() => {
+						startTransition(() => {
+							setIsOpen(false);
+						});
+					}}
+					href="/portfolio/foods-and-drinks"
+				>
+					Foods & Drinks
+				</Link>
+				<Link
+					onClick={() => {
+						startTransition(() => {
+							setIsOpen(false);
+						});
+					}}
+					href="/portfolio/lifestyle"
+				>
+					Lifestyle
+				</Link>
+				<Link
+					onClick={() => {
+						startTransition(() => {
+							setIsOpen(false);
+						});
+					}}
+					href="/portfolio/landscape-and-wildlife"
+				>
+					Landscape & Wildlife
+				</Link>
 
 					<Link
 						onClick={() => {
