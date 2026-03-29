@@ -31,7 +31,10 @@ const ImageModal = ({
   onPrev: () => void
   onNext: () => void
 }) => {
-  const isOpen = selectedIndex !== null
+  const isOpen =
+    selectedIndex !== null &&
+    selectedIndex >= 0 &&
+    selectedIndex < imageUrls.length
   const currentUrl = isOpen ? imageUrls[selectedIndex] : null
   const hasPrev = isOpen && selectedIndex > 0
   const hasNext = isOpen && selectedIndex < imageUrls.length - 1

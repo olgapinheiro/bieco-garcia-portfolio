@@ -1,6 +1,6 @@
 'use client'
 import { ImageArray } from "@/actions/getImagesAction";
-import { use, useCallback, useMemo, useState } from "react";
+import { use, useCallback, useEffect, useMemo, useState } from "react";
 import ImageTrigger from "./ImageTrigger";
 import ImageModal from "./ImageModal";
 
@@ -16,6 +16,12 @@ export default function Gallery({ imagesPromise, directoryName }: { imagesPromis
         .map((blob) => blob.url) ?? [],
     [images, directoryName]
   )
+
+  useEffect(() => {
+    setSelectedIndex((prev) =>
+      prev !== null && prev >= imageUrls.length ? null : prev
+    )
+  }, [imageUrls.length])
 
   const handleOpen = useCallback((index: number) => setSelectedIndex(index), [])
   const handleClose = useCallback(() => setSelectedIndex(null), [])
