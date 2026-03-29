@@ -4,8 +4,7 @@ import "../globals.css";
 import {
   ClerkProvider,
   RedirectToSignIn,
-  SignedIn,
-  SignedOut,
+  Show,
   UserButton,
 } from '@clerk/nextjs'
 
@@ -28,7 +27,7 @@ export default function AdminLayout({
     <ClerkProvider>
       {/* Layout UI */}
       <div className="static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
-        <SignedIn>
+        <Show when="signed-in" fallback={<RedirectToSignIn />}>
           <main className="grid grid-cols-1 p-8 xs:p-16 gap-4 sm:gap-x-16 sm:gap-y-4 md:gap-x-32">
             <div className="flex justify-between items-center mb-4">
               <div className="text-xl font-medium text-center md:text-left flex items-center gap-4">
@@ -40,10 +39,7 @@ export default function AdminLayout({
             </div>
           {children}
           </main>
-        </SignedIn>
-        <SignedOut>
-          <RedirectToSignIn />
-        </SignedOut>
+        </Show>
         </div>
         <Footer />
     </ClerkProvider>
