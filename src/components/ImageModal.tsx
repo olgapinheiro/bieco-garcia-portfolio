@@ -50,6 +50,8 @@ const ImageModal = ({
   useEffect(() => {
     if (!isOpen) return
     const handleKeyDown = (e: KeyboardEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
       if (e.key === 'Escape') onClose()
       if (e.key === 'ArrowLeft' && hasPrev) onPrev()
       if (e.key === 'ArrowRight' && hasNext) onNext()
