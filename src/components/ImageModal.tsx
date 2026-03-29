@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ChevronLeftIcon, ChevronRightIcon, XmarkIcon } from './icons';
+import { useScrollLock } from '@/hooks/useScrollLock';
 
 const SWIPE_X_THRESHOLD = 50
 const SWIPE_X_VELOCITY = 500
@@ -45,6 +46,8 @@ const ImageModal = ({
 
   // Track pointer type (touch vs mouse) to differentiate tap behaviour
   const pointerTypeRef = useRef<string>('')
+
+  useScrollLock(isOpen)
 
   // Keyboard navigation
   useEffect(() => {
