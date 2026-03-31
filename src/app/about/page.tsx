@@ -4,124 +4,143 @@ import Image from "next/image";
 
 const LOGO_IMAGES = [
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Westin',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: 'https://westin.marriott.com/',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Ibis',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Marriot',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Accor',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'ESH',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'CICCHETTI',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Hotel Boutique Expérience',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Armação Resort',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Kembali',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Filho do Vento',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Golden Pineapple Village',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Filha da Lua Eco Lodge',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Ocaporã',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Refúgio do Rio Bonito',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Tabaobi',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'BYD',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Kuat',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'Calvin Klein',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
   {
-    src: '/apple_music_logo.svg',
+    src: 'brands/westin_logo.svg',
     alt: 'BEEFEATER',
-    width: 120,
-    height: 120,
+    width: 60,
+    height: 60,
+    link: '',
   },
 ]
 
 export default function About() {
   return (
-    <main className="flex flex-col place-items-center p-8 sm:p-16 lg:p-20">
+    <main className="flex flex-col place-items-center p-8 sm:p-16 lg:p-20 overflow-hidden">
       <div className="text-center font-medium text-lg max-w-2xl mb-8">
         Elevating Hospitality Brands with Compelling Visual Narratives.
       </div>
@@ -164,16 +183,18 @@ export default function About() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-12 space-y-4 sm:space-x-4 max-w-4xl flex-wrap sm:flex-nowrap">
-        <InfiniteSlider gap={24} speed={80} reverse>
+      <div className="mt-12 max-w-4xl">
+        <InfiniteSlider gap={24} speed={60} speedOnHover={40}>
           {LOGO_IMAGES.map((logo) => (
-            <Image
-              width="100"
-              height="80"
-              src={logo.src}
-              alt={logo.alt}
-              className='h-[80px] w-auto'
-            />
+            <a href={logo.link} target="_blank" rel="noopener noreferrer" key={logo.alt}>
+              <Image
+                width={logo.width}
+                height={logo.height}
+                src={logo.src}
+                alt={logo.alt}
+                className='h-[40px] w-auto'
+              />
+            </a>
           ))}
         </InfiniteSlider>
       </div>
