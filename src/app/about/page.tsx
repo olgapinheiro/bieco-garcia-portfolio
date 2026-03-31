@@ -1,4 +1,123 @@
+import { InfiniteSlider } from '../../../components/motion-primitives/infinite-slider';
+
 import Image from "next/image";
+
+const LOGO_IMAGES = [
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Westin',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Ibis',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Marriot',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Accor',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'ESH',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'CICCHETTI',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Hotel Boutique Expérience',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Armação Resort',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Kembali',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Filho do Vento',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Golden Pineapple Village',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Filha da Lua Eco Lodge',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Ocaporã',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Refúgio do Rio Bonito',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Tabaobi',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'BYD',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Kuat',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'Calvin Klein',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: '/apple_music_logo.svg',
+    alt: 'BEEFEATER',
+    width: 120,
+    height: 120,
+  },
+]
 
 export default function About() {
   return (
@@ -43,6 +162,20 @@ export default function About() {
             </p>
           </div>
         </div>
+      </div>
+
+      <div className="flex justify-center mt-12 space-y-4 sm:space-x-4 max-w-4xl flex-wrap sm:flex-nowrap">
+        <InfiniteSlider gap={24} speed={80} reverse>
+          {LOGO_IMAGES.map((logo) => (
+            <Image
+              width="100"
+              height="80"
+              src={logo.src}
+              alt={logo.alt}
+              className='h-[80px] w-auto'
+            />
+          ))}
+        </InfiniteSlider>
       </div>
     </main>
   );
