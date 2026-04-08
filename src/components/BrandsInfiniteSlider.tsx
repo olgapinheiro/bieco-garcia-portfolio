@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const LOGO_IMAGES = [
   {
-    src: 'brands/westin_logo.svg',
+    src: '/brands/westin_logo.svg',
     alt: 'Westin',
     width: 60,
     height: 60,
