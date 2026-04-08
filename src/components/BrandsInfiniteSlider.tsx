@@ -136,6 +136,13 @@ const LOGO_IMAGES = [
     height: 60,
     link: 'https://www.beefeatergin.com/',
   },
+  {
+    src: '/brands/reveillon-carneiros_logo.png',
+    alt: 'Revéillon Carneiros',
+    width: 60,
+    height: 60,
+    link: 'https://reveilloncarneiros.com/',
+  },
 ]
 
 export default function BrandsInfiniteSlider() {
