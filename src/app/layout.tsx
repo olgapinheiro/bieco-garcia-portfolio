@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ModalProvider } from "@/contexts/ModalContext";
+import FloatingContactButton from "@/components/FloatingContactButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +40,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
+        <ModalProvider>
+          <Header />
+          {children}
+          <FloatingContactButton />
+        </ModalProvider>
         <Analytics />
         <SpeedInsights />
       </body>
