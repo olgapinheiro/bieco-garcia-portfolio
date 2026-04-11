@@ -1,6 +1,7 @@
 import { EmailIcon, InstagramIcon, WhatsappIcon } from "./icons";
+import { WHATSAPP_URL } from "@/lib/utils";
 
-export default function SocialMediaIcons() {
+export default function SocialMediaIcons({size = 16}: {size?: number}) {
 	return (
 		<div className="flex gap-3 items-center justify-center">
 			<a
@@ -10,23 +11,23 @@ export default function SocialMediaIcons() {
 				className="text-black dark:text-white hover:opacity-70 transition-opacity"
 				aria-label="Instagram"
 			>
-				<InstagramIcon />
+				<InstagramIcon size={size} />
 			</a>
 			<a
 				href="mailto:garciabieco@gmail.com"
 				className="text-black dark:text-white hover:opacity-70 transition-opacity"
 				aria-label="Email"
 			>
-				<EmailIcon />
+				<EmailIcon size={size} />
 			</a>
 			<a
-				href="https://wa.me/5581998450799"
+				href={WHATSAPP_URL}
 				target="_blank"
 				rel="noopener noreferrer"
 				className="text-black dark:text-white hover:opacity-70 transition-opacity"
 				aria-label="Whatsapp"
 			>
-				<WhatsappIcon />
+				<WhatsappIcon size={size} />
 			</a>
 		</div>
 	)

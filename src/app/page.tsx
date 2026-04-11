@@ -16,12 +16,6 @@ export default function Home() {
       setImageLoaded(true);
     }, 100);
 
-    // Scroll to hide navbar during hero load
-    const heroSection = document.getElementById('hero-section');
-    if (heroSection) {
-      scrollToSection('hero-section')
-    }
-
     return () => {
       clearTimeout(timer);
     };
@@ -106,7 +100,7 @@ export default function Home() {
   };
 
   return (
-    <div className="static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
+    <div className="-mt-14 static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
       {/* Hero Section */}
       <section
         id="hero-section"
@@ -175,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio-section" className="scroll-mt-0">
+      <section id="portfolio-section" className="scroll-mt-14">
         <Portfolio />
       </section>
 

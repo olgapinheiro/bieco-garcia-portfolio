@@ -3,11 +3,13 @@ import { ImageArray } from "@/actions/getImagesAction";
 import { use, useCallback, useEffect, useMemo, useState } from "react";
 import ImageTrigger from "./ImageTrigger";
 import ImageModal from "./ImageModal";
+import { useModal } from "@/contexts/ModalContext";
 
 
 export default function Gallery({ imagesPromise, directoryName }: { imagesPromise: Promise<ImageArray>, directoryName: string }) {
   const images = use(imagesPromise)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+  const { setModalOpen } = useModal()
 
   const imageUrls = useMemo(
     () =>
@@ -22,6 +24,10 @@ export default function Gallery({ imagesPromise, directoryName }: { imagesPromis
       prev !== null && prev >= imageUrls.length ? null : prev
     )
   }, [imageUrls.length])
+
+  useEffect(() => {
+    setModalOpen(selectedIndex !== null)
+  }, [selectedIndex, setModalOpen])
 
   const handleOpen = useCallback((index: number) => setSelectedIndex(index), [])
   const handleClose = useCallback(() => setSelectedIndex(null), [])
