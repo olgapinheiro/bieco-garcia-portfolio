@@ -1,4 +1,5 @@
 import { EmailIcon, InstagramIcon, WhatsappIcon } from "./icons";
+import { WHATSAPP_URL } from "@/lib/utils";
 
 export default function SocialMediaIcons() {
 	return (
@@ -20,7 +21,7 @@ export default function SocialMediaIcons() {
 				<EmailIcon />
 			</a>
 			<a
-				href="https://wa.me/5581998450799"
+				href={WHATSAPP_URL}
 				target="_blank"
 				rel="noopener noreferrer"
 				className="text-black dark:text-white hover:opacity-70 transition-opacity"
