@@ -42,7 +42,7 @@ export default function RootLayout({
       >
         <ModalProvider>
           <Header />
-          {children}
+          <div className="pt-14">{children}</div>
           <FloatingContactButton />
         </ModalProvider>
         <Analytics />

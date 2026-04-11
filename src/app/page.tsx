@@ -100,7 +100,7 @@ export default function Home() {
   };
 
   return (
-    <div className="static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
+    <div className="-mt-14 static grid min-h-full p-0 gap-0 font-[family-name:var(--font-geist-sans)]">
       {/* Hero Section */}
       <section
         id="hero-section"
